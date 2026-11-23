@@ -647,6 +647,11 @@ img[src*="showcase"] {
     filter: grayscale(100%) !important;
     width:185px!important; }
 
+/* BEETLE BOOK */
+img[src*="den_beetlebook.png"] {
+    filter: grayscale(100%) !important;
+    width:185px!important; }
+
 
 /* CAVE COMPATIBILITY
 featured-lion changes the colors behind your featured lion, literally the strip of text where
