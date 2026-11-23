@@ -638,7 +638,7 @@ img[src$="ancestorsfem.png"] {
     width:185px!important; }
 
 /* ACHIEVMENTS */
-img[src*="achievement"] {
+img[src*="den_achievements.png"] {
     filter: grayscale(100%) !important;
     width:185px!important; }
 
