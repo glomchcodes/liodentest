@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Pirata+One&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* =====================================================================
+   LIODEN DEN THEME  -  GOTHIC MONOCHROME
+   built on our own blank den template
+   fonts: UnifrakturMaguntia (title), Pirata One (panel titles),
+          Cinzel (menus, header bars), EB Garamond (body text)
+   ---------------------------------------------------------------------
+   ---------------------------------------------------------------------
+   HOW TO USE
+   1. Pick your colours in STEP 1 below. Every colour on the page reads
+      from these few lines, so you only fill each colour in once.
+   2. Pick your fonts in STEP 2.
+   3. Everything after that already works. Change individual parts only
+      if you want something special.
+   4. Optional extras (custom images, icon swaps) are at the bottom and
+      are switched off until you remove the slash-star around them.
+
+   Tip: right-click anything on your den and choose Inspect to see
+   which part of this file controls it.
+   ===================================================================== */
+
+
+/* =====================================================================
+   STEP 1 - COLOURS
+   Replace each value with your own colour (#hex, rgb(), or a name).
+   ===================================================================== */
+
+:root {
+  --page:        #0b0b0b;   /* page background behind everything        */
+  --surface:     #151515;   /* panels, comment box, side boxes          */
+  --surface-alt: #1e1e1e;   /* second shade: labels, alt rows, breadcrumb */
+  --raised:      #282828;   /* inputs, buttons, plain alerts            */
+  --line:        #3a3a3a;   /* borders, progress bar track              */
+
+  --text:        #d4d4d4;   /* normal text                              */
+  --text-muted:  #6e6e6e;   /* timestamps, small notes                  */
+  --heading:     #f0f0f0;   /* h1 / h2 / h3                             */
+  --link:        #a6a6a6;   /* links                                    */
+  --link-hover:  #ffffff;   /* links on hover                           */
+
+  --accent:      #ececec;   /* header bars, badges, hover highlights    */
+  --on-accent:   #0b0b0b;   /* text that sits on top of --accent        */
+
+  --bar-energy:  #d0d0d0;   /* energy bar                               */
+  --bar-hunger:  #858585;   /* hunger bar                               */
+  --bar-exp:     #a6a6a6;   /* exp + achievement bars                   */
+  --bar-text:    #ffffff;   /* "Energy: 80%" text on the bars           */
+
+  --radius:      0px;       /* corner roundness everywhere (try 6px)    */
+}
+
+
+/* =====================================================================
+   STEP 2 - FONTS
+   Find a font on fonts.google.com, click "Get embed code", choose
+   @import, and paste the url below. Then put the font names in.
+   ===================================================================== */
+
+/* (the font @import line lives at the very top of this file:
+   browsers ignore @import unless it comes before every other rule) */
+
+body          { font-family: 'EB Garamond', serif; font-size: 15px; }
+.topbar,
+.navbar       { font-family: 'Cinzel', serif; letter-spacing: 0.1em; }
+h1            { font-family: 'UnifrakturMaguntia', serif; font-weight: 400; }
+h2, h3        { font-family: 'Pirata One', serif; font-weight: 400; letter-spacing: 0.05em; }
+.featured-lion,
+.top, .bottom, th { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
+
+
+/* =====================================================================
+   PAGE BACKGROUND
+   To use an image, change the background line to:
+   background: var(--page) url('IMAGE URL') center top / cover fixed;
+   ===================================================================== */
+
+body {
+  /* starfield gif (embedded, tiles across the whole page) */
+  background: var(--page) url('data:image/gif;base64,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') repeat fixed;
+  image-rendering: pixelated;
+  color: var(--text);
+}
+
+html.nolayout { background: none !important; }   /* leave this alone */
+
+.container.main {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.col-md-9 { background: none; }
+
+
+/* =====================================================================
+   SCROLLBARS
+   ===================================================================== */
+
+::-webkit-scrollbar       { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: var(--radius); }
+
+
+/* =====================================================================
+   HEADINGS & LINKS
+   h1 = "Name's Den" title, h3 = side panel titles
+   ===================================================================== */
+
+h1 { color: var(--heading) !important; font-size: 64px; text-align: center !important; }
+h2 { color: var(--heading) !important; font-size: 24px; }
+h3 { color: var(--heading) !important; font-size: 18px; }
+
+a:link, a:visited { color: var(--link) !important; background: none !important; }
+a:hover           { color: var(--link-hover) !important; }
+
+
+/* =====================================================================
+   TOP OF PAGE: top strip, menu bar, breadcrumb path
+   ===================================================================== */
+
+.topbar,
+.navbar,
+.breadcrumb {
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.topbar     { background: var(--surface-alt) !important; color: var(--text) !important; }
+.navbar     { background: var(--surface) !important;     color: var(--text) !important; }
+
+/* no extra spacing around the menu bar (Lioden logo / Den / Explore...) */
+.navbar,
+.navbar-header {
+  margin: 0 !important;
+}
+.breadcrumb { background: var(--surface-alt) !important; color: var(--text-muted) !important; }
+.breadcrumb .active { color: var(--text); }
+
+.navbar li a:hover {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+/* phone menu button + the thin line under it */
+.navbar-toggle   { background: var(--surface) !important; border: none !important; }
+.navbar-collapse { border-top: none !important; box-shadow: none !important; }
+
+
+/* =====================================================================
+   ALERTS  (hunting results, inbox notices, warnings)
+   ===================================================================== */
+
+.alert {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  text-align: center !important;
+}
+.alert-danger,
+.alert-warning {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   SIDE PANELS & PROGRESS BARS
+   ===================================================================== */
+
+.panel {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.progress {
+  background: var(--line);
+  border-radius: var(--radius) !important;
+}
+.progress-bar         { background: var(--bar-exp) !important; border-radius: var(--radius) !important; }
+.progress-bar-warning { background: var(--bar-energy) !important; }   /* energy */
+.progress-bar-danger  { background: var(--bar-hunger) !important; }   /* hunger */
+.progress-bar-success { background: var(--bar-exp) !important; }      /* exp, achievements */
+.progress div         { color: var(--bar-text) !important; }
+.progress div         { text-shadow: 0 0 3px #000, 0 0 1px #000; }   /* keeps bar text readable on light bars */
+
+
+/* =====================================================================
+   DEN BUTTON BOXES
+   .feature = FAPA-style boxes
+   div.left = dynasty / achievements / showcase / beetle book, and the
+              breeding requests / user log / attack history buttons
+   ===================================================================== */
+
+.feature,
+div.left {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.feature { border: 3px double var(--line) !important; }
+.xsmall  { font-size: 14px !important; }   /* evens out FAPA box sizes */
+
+
+/* =====================================================================
+   KING / LION INFO TABLES
+   .top    = bar with your king's name
+   .bottom = "X mutations in your pride" bar
+   th      = other table headers (sparring, edit details...)
+   ===================================================================== */
+
+.table {
+  background: transparent;
+  border: none !important;
+  border-collapse: separate;
+}
+
+.top, .bottom, th {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.top a, .bottom a, th a,
+.top a:visited, .bottom a:visited, th a:visited {
+  color: var(--on-accent) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.table .left,
+.inner-table .left  { background: var(--surface-alt) !important; border-radius: var(--radius) !important; }
+.inner-table .right { background: var(--surface) !important; color: var(--text) !important; border-radius: var(--radius) !important; }
+.right_odd          { background: none !important; }
+
+/* your avatar and lion picture */
+div#lion_image   { border-radius: 50%; overflow: hidden; }
+table#player img { border-radius: 50%; }
+table#player.table hr { display: none !important; }
+
+
+/* =====================================================================
+   FEATURED LION & PRIDE LIST
+   ===================================================================== */
+
+.featured-lion {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+table#pride.table,
+table#pride.table a,
+table#pride.table a:visited { color: var(--text) !important; }
+table#pride.table .xsmall   { font-size: 12px !important; }
+
+
+/* =====================================================================
+   CAVES & BEETLE MOUNDS (the name strips under each cave)
+   ===================================================================== */
+
+.cave-grid,
+.mound-grid {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+
+
+/* =====================================================================
+   COMMENTS
+   div#commentBox = the whole comment area
+   .comment       = each comment
+   ===================================================================== */
+
+div#commentBox {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.comment {
+  background: var(--surface-alt) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.text-muted  { color: var(--text-muted) !important; }
+input.bad    { background: var(--raised) !important; color: var(--text) !important; }  /* delete-comment x */
+
+
+/* =====================================================================
+   TEXT BOXES & BUTTONS
+   ===================================================================== */
+
+input, textarea, select,
+button.button, a.btn.btn-default.button {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  text-shadow: none !important;
+}
+button.button:hover,
+a.btn.btn-default.button:hover {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   BADGES  (inbox count, days until heat)
+   ===================================================================== */
+
+.badge {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   CHAT
+   ===================================================================== */
+
+button#label_currentChannel,
+button.channelSwitcher,
+button.channelSwitcher.active,
+.s-chat-sidebar #fraChatChannelMenu {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+div#chatMessageContainer { border: none !important; }
+
+.s-chat-message:nth-child(odd)  { background: var(--surface) !important;     border: none !important; }
+.s-chat-message:nth-child(even) { background: var(--surface-alt) !important; border: none !important; }
+.s-chat-message_timestamp       { color: var(--text-muted) !important; }
+div#lblCharacterCounter         { color: var(--text-muted) !important; }
+
+.s-chat-message__pinned {
+  background-color: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+}
+
+/* messages that mention you (must be background-color here) */
+#chatMessageList[data-pings="enabled"] .s-chat-message_mention {
+  background-color: var(--raised) !important;
+  border-left: 4px solid var(--accent) !important;
+}
+
+div.emoteList.active {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+div.emoteList.active::before {
+  background: var(--surface);
+  border: 1px solid var(--line) !important;
+  border-top: none !important;
+}
+
+
+
+/* =====================================================================
+   MONOCHROME IMAGES
+   Turns Lioden's own icons, banners, cave slots and beetle mounds
+   greyscale. Your lions themselves stay in colour.
+   ===================================================================== */
+
+/* cave slots, pride overview, unsorted, nesting, create mound,
+   beetle mounds (incl. beetlemound.png) - all share one setting */
+div.cave-grid img,
+div.mound-grid img,
+.cave-grid > img,
+.mound-grid > img,
+img[src*="beetlemound"],
+img[src*="nesting"],
+img[src*="unsorted"],
+img[src*="cave/default"] {
+  filter: grayscale(100%) !important;
+}
+
+/* den banners & buttons: dynasty, achievements, showcase, beetle book */
+div.left img,
+img[src*="ancestors"],
+img[src*="achievement"],
+img[src*="showcase"],
+img[src*="beetlebook"],
+a[href*="beetle"] img {
+  filter: grayscale(100%) !important;
+}
+
+/* small icons: den actions, warnings, footnotes, arrows, logo */
+img[src*="icon_"],
+img[src*="donator"],
+img[src*="foot"],
+img[src*="arrow"],
+.navbar-header > a > img {
+  filter: grayscale(100%) !important;
+}
+
+/* currency */
+img[src$="gold.png"],
+img[src$="silver.png"],
+img[src*="beetle"],
+img[src*="shard"],
+img[src*="axion"],
+img[src*="bone"],
+img[src*="eldritch"],
+img[src*="feather"],
+img[src*="scale"],
+img[src*="stinkbug"],
+img[src*="doubloon"],
+img[src*="heartshell"],
+img[src*="dermestid"],
+img[src*="khepri"],
+img[src*="easteregg"] {
+  filter: grayscale(100%) !important;
+}
+
+/* online / offline marker next to player names */
+.member-online  { filter: grayscale(100%) brightness(1.2) !important; }
+.member-offline { filter: grayscale(100%) brightness(0.6) !important; }
+
+/* =====================================================================
+   OPTIONAL EXTRAS - switched off. Remove the slash-star and star-slash
+   around a block to switch it on.
+   ===================================================================== */
+
+
+/* --- Swap any Lioden image for your own ---
+   Right-click the image, Inspect, and copy the end of its file name.
+   Put that name after src$= and your image link inside url().
+   Copy the block once for each image you want to swap.
+img[src$="FILE NAME.png"] {
+  content: url('YOUR IMAGE URL') !important;
+}
+*/
+
+/* --- Hide the Lioden logo and show your own (about 192 x 120) ---
+.navbar-header > a > img { display: none; }
+.navbar-header > a::after { content: url('YOUR LOGO URL'); }
+*/
