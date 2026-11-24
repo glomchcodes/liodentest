@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Pirata+One&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* =====================================================================
+   LIODEN DEN THEME  -  GOTHIC MONOCHROME
+   built on our own blank den template
+   fonts: UnifrakturMaguntia (title), Pirata One (panel titles),
+          Cinzel (menus, header bars), EB Garamond (body text)
+   ---------------------------------------------------------------------
+   ---------------------------------------------------------------------
+   HOW TO USE
+   1. Pick your colours in STEP 1 below. Every colour on the page reads
+      from these few lines, so you only fill each colour in once.
+   2. Pick your fonts in STEP 2.
+   3. Everything after that already works. Change individual parts only
+      if you want something special.
+   4. Optional extras (custom images, icon swaps) are at the bottom and
+      are switched off until you remove the slash-star around them.
+
+   Tip: right-click anything on your den and choose Inspect to see
+   which part of this file controls it.
+   ===================================================================== */
+
+
+/* =====================================================================
+   STEP 1 - COLOURS
+   Replace each value with your own colour (#hex, rgb(), or a name).
+   ===================================================================== */
+
+:root {
+  --page:        #0b0b0b;   /* page background behind everything        */
+  --surface:     #151515;   /* panels, comment box, side boxes          */
+  --surface-alt: #1e1e1e;   /* second shade: labels, alt rows, breadcrumb */
+  --raised:      #282828;   /* inputs, buttons, plain alerts            */
+  --line:        #3a3a3a;   /* borders, progress bar track              */
+
+  --text:        #d4d4d4;   /* normal text                              */
+  --text-muted:  #6e6e6e;   /* timestamps, small notes                  */
+  --heading:     #f0f0f0;   /* h1 / h2 / h3                             */
+  --link:        #a6a6a6;   /* links                                    */
+  --link-hover:  #ffffff;   /* links on hover                           */
+
+  --accent:      #ececec;   /* header bars, badges, hover highlights    */
+  --on-accent:   #0b0b0b;   /* text that sits on top of --accent        */
+
+  --bar-energy:  #d0d0d0;   /* energy bar                               */
+  --bar-hunger:  #858585;   /* hunger bar                               */
+  --bar-exp:     #a6a6a6;   /* exp + achievement bars                   */
+  --bar-text:    #ffffff;   /* "Energy: 80%" text on the bars           */
+
+  --radius:      0px;       /* corner roundness everywhere (try 6px)    */
+}
+
+
+/* =====================================================================
+   STEP 2 - FONTS
+   Find a font on fonts.google.com, click "Get embed code", choose
+   @import, and paste the url below. Then put the font names in.
+   ===================================================================== */
+
+/* (the font @import line lives at the very top of this file:
+   browsers ignore @import unless it comes before every other rule) */
+
+body          { font-family: 'EB Garamond', serif; font-size: 15px; }
+.topbar,
+.navbar       { font-family: 'Cinzel', serif; letter-spacing: 0.1em; }
+h1            { font-family: 'UnifrakturMaguntia', serif; font-weight: 400; }
+h2, h3        { font-family: 'Pirata One', serif; font-weight: 400; letter-spacing: 0.05em; }
+.featured-lion,
+.top, .bottom, th { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
+
+
+/* =====================================================================
+   PAGE BACKGROUND
+   To use an image, change the background line to:
+   background: var(--page) url('IMAGE URL') center top / cover fixed;
+   ===================================================================== */
+
+body {
+  background: radial-gradient(ellipse at top, #222222 0%, #111111 50%, var(--page) 100%) center top / cover fixed;
+  color: var(--text);
+}
+
+html.nolayout { background: none !important; }   /* leave this alone */
+
+.container.main {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.col-md-9 { background: none; }
+
+
+/* =====================================================================
+   SCROLLBARS
+   ===================================================================== */
+
+::-webkit-scrollbar       { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: var(--radius); }
+
+
+/* =====================================================================
+   HEADINGS & LINKS
+   h1 = "Name's Den" title, h3 = side panel titles
+   ===================================================================== */
+
+h1 { color: var(--heading) !important; font-size: 64px; text-align: center !important; }
+h2 { color: var(--heading) !important; font-size: 24px; }
+h3 { color: var(--heading) !important; font-size: 18px; }
+
+a:link, a:visited { color: var(--link) !important; background: none !important; }
+a:hover           { color: var(--link-hover) !important; }
+
+
+/* =====================================================================
+   TOP OF PAGE: top strip, menu bar, breadcrumb path
+   ===================================================================== */
+
+.topbar,
+.navbar,
+.breadcrumb {
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.topbar     { background: var(--surface-alt) !important; color: var(--text) !important; }
+.navbar     { background: var(--surface) !important;     color: var(--text) !important; }
+.breadcrumb { background: var(--surface-alt) !important; color: var(--text-muted) !important; }
+.breadcrumb .active { color: var(--text); }
+
+.navbar li a:hover {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+/* phone menu button + the thin line under it */
+.navbar-toggle   { background: var(--surface) !important; border: none !important; }
+.navbar-collapse { border-top: none !important; box-shadow: none !important; }
+
+
+/* =====================================================================
+   ALERTS  (hunting results, inbox notices, warnings)
+   ===================================================================== */
+
+.alert {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  text-align: center !important;
+}
+.alert-danger,
+.alert-warning {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   SIDE PANELS & PROGRESS BARS
+   ===================================================================== */
+
+.panel {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.progress {
+  background: var(--line);
+  border-radius: var(--radius) !important;
+}
+.progress-bar         { background: var(--bar-exp) !important; border-radius: var(--radius) !important; }
+.progress-bar-warning { background: var(--bar-energy) !important; }   /* energy */
+.progress-bar-danger  { background: var(--bar-hunger) !important; }   /* hunger */
+.progress-bar-success { background: var(--bar-exp) !important; }      /* exp, achievements */
+.progress div         { color: var(--bar-text) !important; }
+.progress div         { text-shadow: 0 0 3px #000, 0 0 1px #000; }   /* keeps bar text readable on light bars */
+
+
+/* =====================================================================
+   DEN BUTTON BOXES
+   .feature = FAPA-style boxes
+   div.left = dynasty / achievements / showcase / beetle book, and the
+              breeding requests / user log / attack history buttons
+   ===================================================================== */
+
+.feature,
+div.left {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.feature { border: 3px double var(--line) !important; }
+.xsmall  { font-size: 14px !important; }   /* evens out FAPA box sizes */
+
+
+/* =====================================================================
+   KING / LION INFO TABLES
+   .top    = bar with your king's name
+   .bottom = "X mutations in your pride" bar
+   th      = other table headers (sparring, edit details...)
+   ===================================================================== */
+
+.table {
+  background: transparent;
+  border: none !important;
+  border-collapse: separate;
+}
+
+.top, .bottom, th {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.top a, .bottom a, th a,
+.top a:visited, .bottom a:visited, th a:visited {
+  color: var(--on-accent) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.table .left,
+.inner-table .left  { background: var(--surface-alt) !important; border-radius: var(--radius) !important; }
+.inner-table .right { background: var(--surface) !important; color: var(--text) !important; border-radius: var(--radius) !important; }
+.right_odd          { background: none !important; }
+
+/* your avatar and lion picture */
+div#lion_image   { border-radius: 50%; overflow: hidden; }
+table#player img { border-radius: 50%; }
+table#player.table hr { display: none !important; }
+
+
+/* =====================================================================
+   FEATURED LION & PRIDE LIST
+   ===================================================================== */
+
+.featured-lion {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+table#pride.table,
+table#pride.table a,
+table#pride.table a:visited { color: var(--text) !important; }
+table#pride.table .xsmall   { font-size: 12px !important; }
+
+
+/* =====================================================================
+   CAVES & BEETLE MOUNDS (the name strips under each cave)
+   ===================================================================== */
+
+.cave-grid,
+.mound-grid {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+
+
+/* =====================================================================
+   COMMENTS
+   div#commentBox = the whole comment area
+   .comment       = each comment
+   ===================================================================== */
+
+div#commentBox {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.comment {
+  background: var(--surface-alt) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+}
+.text-muted  { color: var(--text-muted) !important; }
+input.bad    { background: var(--raised) !important; color: var(--text) !important; }  /* delete-comment x */
+
+
+/* =====================================================================
+   TEXT BOXES & BUTTONS
+   ===================================================================== */
+
+input, textarea, select,
+button.button, a.btn.btn-default.button {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  text-shadow: none !important;
+}
+button.button:hover,
+a.btn.btn-default.button:hover {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   BADGES  (inbox count, days until heat)
+   ===================================================================== */
+
+.badge {
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+}
+
+
+/* =====================================================================
+   CHAT
+   ===================================================================== */
+
+button#label_currentChannel,
+button.channelSwitcher,
+button.channelSwitcher.active,
+.s-chat-sidebar #fraChatChannelMenu {
+  background: var(--raised) !important;
+  color: var(--text) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+div#chatMessageContainer { border: none !important; }
+
+.s-chat-message:nth-child(odd)  { background: var(--surface) !important;     border: none !important; }
+.s-chat-message:nth-child(even) { background: var(--surface-alt) !important; border: none !important; }
+.s-chat-message_timestamp       { color: var(--text-muted) !important; }
+div#lblCharacterCounter         { color: var(--text-muted) !important; }
+
+.s-chat-message__pinned {
+  background-color: var(--accent) !important;
+  color: var(--on-accent) !important;
+  border: none !important;
+}
+
+/* messages that mention you (must be background-color here) */
+#chatMessageList[data-pings="enabled"] .s-chat-message_mention {
+  background-color: var(--raised) !important;
+  border-left: 4px solid var(--accent) !important;
+}
+
+div.emoteList.active {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+div.emoteList.active::before {
+  background: var(--surface);
+  border: 1px solid var(--line) !important;
+  border-top: none !important;
+}
+
+
+
+/* =====================================================================
+   MONOCHROME IMAGES
+   Turns Lioden's own icons, banners, cave slots and beetle mounds
+   greyscale. Your lions themselves stay in colour.
+   ===================================================================== */
+
+/* cave slots, pride overview, unsorted, nesting, create mound,
+   beetle mounds (incl. beetlemound.png) - all share one setting */
+div.cave-grid img,
+div.mound-grid img,
+.cave-grid > img,
+.mound-grid > img,
+img[src*="beetlemound"],
+img[src*="nesting"],
+img[src*="unsorted"],
+img[src*="cave/default"] {
+  filter: grayscale(100%) !important;
+}
+
+/* den banners & buttons: dynasty, achievements, showcase, beetle book */
+div.left img,
+img[src*="ancestors"],
+img[src*="achievement"],
+img[src*="showcase"],
+img[src*="beetlebook"],
+a[href*="beetle"] img {
+  filter: grayscale(100%) !important;
+}
+
+/* small icons: den actions, warnings, footnotes, arrows, logo */
+img[src*="icon_"],
+img[src*="donator"],
+img[src*="foot"],
+img[src*="arrow"],
+.navbar-header > a > img {
+  filter: grayscale(100%) !important;
+}
+
+/* currency */
+img[src$="gold.png"],
+img[src$="silver.png"],
+img[src*="beetle"],
+img[src*="shard"],
+img[src*="axion"],
+img[src*="bone"],
+img[src*="eldritch"],
+img[src*="feather"],
+img[src*="scale"],
+img[src*="stinkbug"],
+img[src*="doubloon"],
+img[src*="heartshell"],
+img[src*="dermestid"],
+img[src*="khepri"],
+img[src*="easteregg"] {
+  filter: grayscale(100%) !important;
+}
+
+/* online / offline marker next to player names */
+.member-online  { filter: grayscale(100%) brightness(1.2) !important; }
+.member-offline { filter: grayscale(100%) brightness(0.6) !important; }
+
+/* =====================================================================
+   OPTIONAL EXTRAS - switched off. Remove the slash-star and star-slash
+   around a block to switch it on.
+   ===================================================================== */
+
+
+/* --- Swap any Lioden image for your own ---
+   Right-click the image, Inspect, and copy the end of its file name.
+   Put that name after src$= and your image link inside url().
+   Copy the block once for each image you want to swap.
+img[src$="FILE NAME.png"] {
+  content: url('YOUR IMAGE URL') !important;
+}
+*/
+
+/* --- Hide the Lioden logo and show your own (about 192 x 120) ---
+.navbar-header > a > img { display: none; }
+.navbar-header > a::after { content: url('YOUR LOGO URL'); }
+*/
